@@ -1,4 +1,4 @@
-#include "wrap.h"
+#include "../../inc/wrap.h"
 
 void perr_exit(const char *s)
 {

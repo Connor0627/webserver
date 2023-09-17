@@ -1,4 +1,4 @@
-#include "wrap.h"
+#include "../inc/wrap.h"
 
 #define SERV_PORT 8888
 
