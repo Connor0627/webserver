@@ -16,7 +16,7 @@ int main()
     struct sockaddr_in srv_addr;
     srv_addr.sin_family = AF_INET;
     srv_addr.sin_port = htons(SERV_PORT);
-    inet_pton(AF_INET, "127.0.0.1", &srv_addr.sin_addr.s_addr);
+    inet_pton(AF_INET, "10.211.55.3", &srv_addr.sin_addr.s_addr);
     sockfd = Socket(AF_INET, SOCK_STREAM, 0);
     if (connect(sockfd, (struct sockaddr *)&srv_addr, sizeof(srv_addr)) == -1)
     {

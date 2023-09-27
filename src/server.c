@@ -17,6 +17,10 @@ int main()
     serv_addr.sin_family = AF_INET;
     serv_addr.sin_port = htons(SERV_PORT);
     serv_addr.sin_addr.s_addr = htonl(INADDR_ANY);
+    // int dst;
+	// inet_pton(AF_INET, "127.0.0.1", (void *) &dst);
+	// serv_addr.sin_addr.s_addr = dst;
+
     if (bind(listenfd, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) == -1)
     {
         sys_err("Failed to bind()!");

@@ -1,5 +1,7 @@
 {
     "files.associations": {
-        "wrap.h": "c"
+        "wrap.h": "c",
+        "event.h": "c",
+        "util.h": "c"
     }
 }
