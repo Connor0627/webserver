@@ -3,3 +3,7 @@ bin/
 
 # 忽略bin文件夹下的所有文件
 bin/*
+
+src/epoll-http-server/*.o
+
+src/epoll-http-server/epoll_server

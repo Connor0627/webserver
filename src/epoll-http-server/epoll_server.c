@@ -22,7 +22,7 @@ const char *get_file_type(const char *name)
     if (dot == NULL)
         return "text/plain; charset=utf-8";
     if (strcmp(dot, ".html") == 0 || strcmp(dot, ".htm") == 0)
-        return "text/html; charset=utf-8";
+        return "text/html";
     if (strcmp(dot, ".jpg") == 0 || strcmp(dot, ".jpeg") == 0)
         return "image/jpeg";
     if (strcmp(dot, ".gif") == 0)
@@ -208,9 +208,9 @@ void send_error(int cfd, int status, char *title, char *text)
 	char buf[4096] = {0};
 
 	sprintf(buf, "%s %d %s\r\n", "HTTP/1.1", status, title);
-	sprintf(buf+strlen(buf), "Content-Type:%s\r\n", "text/html");
-	sprintf(buf+strlen(buf), "Content-Length:%d\r\n", -1);
-	sprintf(buf+strlen(buf), "Connection: close\r\n");
+	sprintf(buf + strlen(buf), "Content-Type:%s\r\n", "text/html");
+	sprintf(buf + strlen(buf), "Content-Length:%d\r\n", -1);
+	sprintf(buf + strlen(buf), "Connection: close\r\n");
 	send(cfd, buf, strlen(buf), 0);
 	send(cfd, "\r\n", 2, 0);
 
@@ -231,9 +231,10 @@ void send_respond_head(int cfd, int no, const char* desp, const char* type, long
 
     sprintf(buf, "Http/1.1 %d %s\r\n", no, desp);
     sprintf(buf + strlen(buf), "Content-Type:%s\r\n", type);
-    // sprintf(buf + strlen(buf), "Content-Length:%ld\r\n\r\n", len);
-    printf("*****send_respond_head: %s*****\n", buf);
-    send(cfd, buf, strlen(buf), 0);
+    sprintf(buf + strlen(buf), "Content-Length:%d\r\n", -1);
+	sprintf(buf + strlen(buf), "Connection: close\r\n");
+	send(cfd, buf, strlen(buf), 0);
+	send(cfd, "\r\n", 2, 0);
 }
 
 void send_dir(int cfd, const char* dirname)
