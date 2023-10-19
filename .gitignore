@@ -7,3 +7,7 @@ bin/*
 src/epoll-http-server/*.o
 
 src/epoll-http-server/epoll_server
+
+src/libevent-http-server/*.o
+
+src/libevent-http-server/libevent_server

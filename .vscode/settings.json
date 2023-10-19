@@ -2,6 +2,7 @@
     "files.associations": {
         "wrap.h": "c",
         "event.h": "c",
-        "util.h": "c"
+        "util.h": "c",
+        "stdio.h": "c"
     }
 }

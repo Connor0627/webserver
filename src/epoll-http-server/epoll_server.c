@@ -229,12 +229,11 @@ void send_respond_head(int cfd, int no, const char* desp, const char* type, long
 {
     char buf[1024] = {0};
 
-    sprintf(buf, "Http/1.1 %d %s\r\n", no, desp);
+    sprintf(buf, "HTTP/1.1 %d %s\r\n", no, desp);
     sprintf(buf + strlen(buf), "Content-Type:%s\r\n", type);
-    sprintf(buf + strlen(buf), "Content-Length:%d\r\n", -1);
-	sprintf(buf + strlen(buf), "Connection: close\r\n");
 	send(cfd, buf, strlen(buf), 0);
 	send(cfd, "\r\n", 2, 0);
+
 }
 
 void send_dir(int cfd, const char* dirname)
